@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C2F28CE1EA9E9C40071C4AD /* ProviderDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2F28CD1EA9E9C40071C4AD /* ProviderDelegate.m */; };
+		4C2F28D21EA9EA3D0071C4AD /* CallController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2F28D11EA9EA3D0071C4AD /* CallController.m */; };
+		4C2F28D51EA9FA7C0071C4AD /* CallManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2F28D41EA9FA7C0071C4AD /* CallManager.m */; };
 		4C6D66BA1EA9AF6700077EC5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C6D66B91EA9AF6700077EC5 /* main.m */; };
 		4C6D66BD1EA9AF6700077EC5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C6D66BC1EA9AF6700077EC5 /* AppDelegate.m */; };
 		4C6D66C01EA9AF6700077EC5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C6D66BF1EA9AF6700077EC5 /* ViewController.m */; };
@@ -17,6 +20,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C2F28CC1EA9E9C40071C4AD /* ProviderDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProviderDelegate.h; sourceTree = "<group>"; };
+		4C2F28CD1EA9E9C40071C4AD /* ProviderDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProviderDelegate.m; sourceTree = "<group>"; };
+		4C2F28D01EA9EA3D0071C4AD /* CallController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CallController.h; sourceTree = "<group>"; };
+		4C2F28D11EA9EA3D0071C4AD /* CallController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CallController.m; sourceTree = "<group>"; };
+		4C2F28D31EA9FA7C0071C4AD /* CallManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CallManager.h; sourceTree = "<group>"; };
+		4C2F28D41EA9FA7C0071C4AD /* CallManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CallManager.m; sourceTree = "<group>"; };
 		4C6D66B51EA9AF6700077EC5 /* PushKit_CallKit_Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PushKit_CallKit_Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C6D66B91EA9AF6700077EC5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4C6D66BB1EA9AF6700077EC5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -44,6 +53,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C2F28CB1EA9E9930071C4AD /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				4C2F28CC1EA9E9C40071C4AD /* ProviderDelegate.h */,
+				4C2F28CD1EA9E9C40071C4AD /* ProviderDelegate.m */,
+			);
+			path = Provider;
+			sourceTree = "<group>";
+		};
+		4C2F28CF1EA9EA090071C4AD /* CallController */ = {
+			isa = PBXGroup;
+			children = (
+				4C2F28D01EA9EA3D0071C4AD /* CallController.h */,
+				4C2F28D11EA9EA3D0071C4AD /* CallController.m */,
+				4C2F28D31EA9FA7C0071C4AD /* CallManager.h */,
+				4C2F28D41EA9FA7C0071C4AD /* CallManager.m */,
+			);
+			path = CallController;
+			sourceTree = "<group>";
+		};
 		4C6D66AC1EA9AF6700077EC5 = {
 			isa = PBXGroup;
 			children = (
@@ -63,8 +92,10 @@
 		4C6D66B71EA9AF6700077EC5 /* PushKit_CallKit_Demo */ = {
 			isa = PBXGroup;
 			children = (
+				4C2F28CF1EA9EA090071C4AD /* CallController */,
 				4C6D66D21EA9B24B00077EC5 /* PushKit_CallKit_Demo.entitlements */,
 				4C6D66D31EA9C2C900077EC5 /* GlobalDefine.h */,
+				4C2F28CB1EA9E9930071C4AD /* Provider */,
 				4C6D66CF1EA9B00700077EC5 /* NSString+UCLog.h */,
 				4C6D66D01EA9B00700077EC5 /* NSString+UCLog.m */,
 				4C6D66BB1EA9AF6700077EC5 /* AppDelegate.h */,
@@ -119,13 +150,14 @@
 				TargetAttributes = {
 					4C6D66B41EA9AF6700077EC5 = {
 						CreatedOnToolsVersion = 8.3;
+						DevelopmentTeam = L6K9JEBXP2;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
 							};
 							com.apple.Push = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -171,6 +203,9 @@
 				4C6D66C01EA9AF6700077EC5 /* ViewController.m in Sources */,
 				4C6D66BD1EA9AF6700077EC5 /* AppDelegate.m in Sources */,
 				4C6D66BA1EA9AF6700077EC5 /* main.m in Sources */,
+				4C2F28CE1EA9E9C40071C4AD /* ProviderDelegate.m in Sources */,
+				4C2F28D21EA9EA3D0071C4AD /* CallController.m in Sources */,
+				4C2F28D51EA9FA7C0071C4AD /* CallManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,13 +327,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = PushKit_CallKit_Demo/PushKit_CallKit_Demo.entitlements;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer: bing tang (5866Z4G6W4)";
+				DEVELOPMENT_TEAM = L6K9JEBXP2;
 				INFOPLIST_FILE = PushKit_CallKit_Demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ucpaas.OTTPushKitDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ucpaasforiosdev.callkit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "75af014a-9853-4c65-a638-a8e71e90eea0";
+				PROVISIONING_PROFILE_SPECIFIER = UCPaasDev;
 			};
 			name = Debug;
 		};
@@ -306,13 +342,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = PushKit_CallKit_Demo/PushKit_CallKit_Demo.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Shenzhen Cloudcomm.Network Technology Co.Ltd";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shenzhen Cloudcomm.Network Technology Co.Ltd";
 				DEVELOPMENT_TEAM = L6K9JEBXP2;
 				INFOPLIST_FILE = PushKit_CallKit_Demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ucpaas.OTTPushKitDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ucpaasforiosdev.callkit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "d8fb8eaa-bffa-44f9-a321-31c74090379b";
 				PROVISIONING_PROFILE_SPECIFIER = OTTPushKitDemoProfiles;
@@ -338,6 +373,7 @@
 				4C6D66CE1EA9AF6700077EC5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

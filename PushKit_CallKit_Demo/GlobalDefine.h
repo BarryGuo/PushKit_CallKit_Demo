@@ -12,8 +12,8 @@
 
 #import "AppDelegate.h"
 
-// 注释掉这句代码禁用callkit功能
-#define USE_CALLKIT
+//不小于某个版本
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v) ([UIDevice currentDevice].systemVersion.floatValue >= v)
 
 
 #endif /* GlobalDefine_h */

@@ -7,8 +7,13 @@
 //
 
 #import "ViewController.h"
+#import "ProviderDelegate.h"
 
 @interface ViewController ()
+@property (weak, nonatomic) IBOutlet UIButton *IncomingCallButtom;
+
+@property (nonatomic, strong) ProviderDelegate * provider;
+@property (nonatomic, strong) CallController * callController;
 
 @end
 
@@ -17,6 +22,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    _callController = [[CallController alloc] init];
+    
+    _provider = [[ProviderDelegate alloc] initWithCallController:_callController];
 }
 
 
@@ -24,6 +33,14 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (IBAction)incomingCallTouched:(id)sender {
+    NSLog(@"收到来电");
+    
+    [_provider reportIncomingCall];
+}
+
+
 
 
 @end

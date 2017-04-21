@@ -16,7 +16,17 @@
 #import <UserNotifications/UserNotifications.h>
 #endif
 
+#import "GlobalDefine.h"
+
+#import "ProviderDelegate.h"
+#import "CallController/CallController.h"
+
 @interface AppDelegate ()<PKPushRegistryDelegate,UNUserNotificationCenterDelegate>
+
+
+@property (nonatomic, strong) ProviderDelegate * provider;
+@property (nonatomic, strong) CallController * callController;
+
 
 @end
 
@@ -32,6 +42,7 @@
     
     [self registPushKit];
     
+    
     return YES;
 }
 
@@ -39,12 +50,24 @@
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
+    
 }
 
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    [self incomingCall];
+   
+}
+
+
+- (void)incomingCall{
+    _callController = [[CallController alloc] init];
+    
+    _provider = [[ProviderDelegate alloc] initWithCallController:_callController];
+    
+    [_provider reportIncomingCall];
 }
 
 
@@ -66,13 +89,11 @@
 #pragma mark 通知授权和 apns注册
 - (void)registePushAndLocalNoti{
     
-    float version = [UIDevice currentDevice].systemVersion.floatValue;
-    
-    if (version >= 10.0) {
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(10.0)) {
         [self registLocalNotification];  //获取通知授权
         [[UIApplication sharedApplication] registerForRemoteNotifications];  //注册apns
         
-    }else if (version >= 8.0){
+    }else if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(8.0)){
         
         UIApplication *application = [UIApplication sharedApplication];
         UIUserNotificationType notificationTypes = UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert;
@@ -236,8 +257,7 @@ didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
     
     [[NSString stringWithFormat:@"didReceiveIncomingPushWithPayload: %@", payload.description] saveTolog];
     
-    float version = [UIDevice currentDevice].systemVersion.floatValue;
-    if (version >= 10.0){
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(10.0)){
         // 使用 UNUserNotificationCenter 来管理通知
         UNUserNotificationCenter* center = [UNUserNotificationCenter currentNotificationCenter];
         
