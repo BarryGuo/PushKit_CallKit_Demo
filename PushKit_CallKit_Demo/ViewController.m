@@ -11,6 +11,7 @@
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *IncomingCallButtom;
+@property (weak, nonatomic) IBOutlet UIButton *outCallButton;
 
 @property (nonatomic, strong) ProviderDelegate * provider;
 @property (nonatomic, strong) CallController * callController;
@@ -24,7 +25,6 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     _callController = [[CallController alloc] init];
-    
     _provider = [[ProviderDelegate alloc] initWithCallController:_callController];
 }
 
@@ -40,6 +40,11 @@
     [_provider reportIncomingCall];
 }
 
+- (IBAction)outCallButtonTouched:(UIButton *)sender {
+    NSLog(@"发起来电");
+    
+    [_callController startCall:@"18211301722"];
+}
 
 
 

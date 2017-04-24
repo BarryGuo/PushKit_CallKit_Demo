@@ -26,13 +26,19 @@
     
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
+        //系统来电页面显示的app名称和系统通讯记录的信息
         configInternal = [[CXProviderConfiguration alloc] initWithLocalizedName:@"MyCall"];
-        configInternal.supportsVideo = YES;
+        //是否支持视频
+        configInternal.supportsVideo = NO;
+        //最大通话组
         configInternal.maximumCallsPerCallGroup = 1;
         configInternal.maximumCallGroups = 1;
+        //支持的handle类型
         configInternal.supportedHandleTypes = [NSSet setWithObject:@(CXHandleTypePhoneNumber)];
+        //锁屏接听时，系统界面右下角的app图标，要求40 x 40大小
         UIImage* iconMaskImage = [UIImage imageNamed:@"IconMask"];
         configInternal.iconTemplateImageData = UIImagePNGRepresentation(iconMaskImage);
+        //来电铃声
         configInternal.ringtoneSound = @"Ringtone.caf";
     });
     
@@ -41,8 +47,7 @@
 
 
 - (instancetype)initWithCallController:(CallController *)callController{
-    self = [super init];
-    if (self) {
+    if (self = [super init]) {
         self.callController = callController;
         _provider = [[CXProvider alloc] initWithConfiguration:self.config];
         [_provider setDelegate:self queue:nil];
@@ -53,9 +58,9 @@
 - (void)reportIncomingCall{
     CXCallUpdate* update = [[CXCallUpdate alloc] init];
     update.hasVideo = NO;
-    update.remoteHandle = [[CXHandle alloc] initWithType:CXHandleTypePhoneNumber value:self.callController.currentHandle];
+    update.remoteHandle = [[CXHandle alloc] initWithType:CXHandleTypePhoneNumber value:@"18211301722"];
     
-    [self.provider reportNewIncomingCallWithUUID:self.callController.currentUUID update:update completion:^(NSError * _Nullable error) {
+    [self.provider reportNewIncomingCallWithUUID:[NSUUID UUID] update:update completion:^(NSError * _Nullable error) {
         if (error) {
             NSLog(@"report error");
         }
@@ -77,11 +82,15 @@
     
 }
 
-
+//outgoing 外呼
 - (void)provider:(CXProvider *)provider performStartCallAction:(CXStartCallAction *)action{
-    
+    NSUUID* currentID = self.callController.currentUUID;
+    if ([[action.callUUID UUIDString] isEqualToString:[currentID UUIDString]]) {
+        
+    }
 }
 
+//incoming 接听
 - (void)provider:(CXProvider *)provider performAnswerCallAction:(CXAnswerCallAction *)action{
     NSUUID* currentID = self.callController.currentUUID;
     if ([[action.callUUID UUIDString] isEqualToString:[currentID UUIDString]]) {
@@ -91,6 +100,8 @@
         [action fail];
     }
 }
+
+
 - (void)provider:(CXProvider *)provider performEndCallAction:(CXEndCallAction *)action{
     NSUUID* currentID = self.callController.currentUUID;
     if ([[action.callUUID UUIDString] isEqualToString:[currentID UUIDString]]) {

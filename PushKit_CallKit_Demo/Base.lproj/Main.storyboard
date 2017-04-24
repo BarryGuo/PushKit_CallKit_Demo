@@ -34,16 +34,32 @@
                                     <action selector="incomingCallTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9DB-W6-Igb"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Lw-Af-O6I">
+                                <rect key="frame" x="131" y="478" width="113" height="30"/>
+                                <color key="backgroundColor" red="0.1275063849442617" green="1" blue="0.40844325643563284" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="113" id="KJG-Rm-cm5"/>
+                                    <constraint firstAttribute="height" constant="30" id="jpT-g0-GZ9"/>
+                                </constraints>
+                                <state key="normal" title="打电话"/>
+                                <connections>
+                                    <action selector="outCallButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0nG-Rb-LtQ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="0Lw-Af-O6I" secondAttribute="trailing" constant="115" id="5qJ-Bs-Us4"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="jZC-Eh-BnP" secondAttribute="bottom" constant="60" id="Aos-LI-9Tn"/>
+                            <constraint firstItem="jZC-Eh-BnP" firstAttribute="top" secondItem="0Lw-Af-O6I" secondAttribute="bottom" constant="66" id="I5U-a9-Gxj"/>
                             <constraint firstItem="jZC-Eh-BnP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="115" id="Pfi-MC-8gu"/>
+                            <constraint firstItem="0Lw-Af-O6I" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="115" id="cfd-9a-lXw"/>
                             <constraint firstAttribute="trailingMargin" secondItem="jZC-Eh-BnP" secondAttribute="trailing" constant="115" id="f43-5o-Qdk"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="IncomingCallButtom" destination="jZC-Eh-BnP" id="Bzi-nz-s9c"/>
+                        <outlet property="outCallButton" destination="0Lw-Af-O6I" id="UIG-1t-enE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

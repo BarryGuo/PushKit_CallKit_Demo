@@ -154,7 +154,7 @@
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
-								enabled = 1;
+								enabled = 0;
 							};
 							com.apple.Push = {
 								enabled = 0;
@@ -331,7 +331,7 @@
 				DEVELOPMENT_TEAM = L6K9JEBXP2;
 				INFOPLIST_FILE = PushKit_CallKit_Demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ucpaasforiosdev.callkit;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ucpaasforiosdev.OTTPushKitDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "75af014a-9853-4c65-a638-a8e71e90eea0";
 				PROVISIONING_PROFILE_SPECIFIER = UCPaasDev;
@@ -347,7 +347,7 @@
 				DEVELOPMENT_TEAM = L6K9JEBXP2;
 				INFOPLIST_FILE = PushKit_CallKit_Demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ucpaasforiosdev.callkit;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ucpaasforiosdev.OTTPushKitDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "d8fb8eaa-bffa-44f9-a321-31c74090379b";
 				PROVISIONING_PROFILE_SPECIFIER = OTTPushKitDemoProfiles;

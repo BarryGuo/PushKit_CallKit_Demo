@@ -17,4 +17,8 @@
 
 - (void)answerCall;
 
+
+- (void)startCall:(NSString*)handle;
+- (void)endCall;
+
 @end

@@ -10,43 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PushKit_CallKit_Demo/Provider/ProviderDelegate.m"
-            timestampString = "514454844.576867"
+            timestampString = "514719343.270405"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
-            landmarkName = "-providerDidReset:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PushKit_CallKit_Demo/Provider/ProviderDelegate.m"
-            timestampString = "514455999.304156"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
-            landmarkName = "-provider:performStartCallAction:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PushKit_CallKit_Demo/Provider/ProviderDelegate.m"
-            timestampString = "514455999.304156"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
             landmarkName = "-provider:performSetHeldCallAction:"
             landmarkType = "7">
          </BreakpointContent>
@@ -58,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PushKit_CallKit_Demo/Provider/ProviderDelegate.m"
-            timestampString = "514455999.304156"
+            timestampString = "514719343.270405"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "107"
-            endingLineNumber = "107"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
             landmarkName = "-provider:performSetMutedCallAction:"
             landmarkType = "7">
          </BreakpointContent>
@@ -74,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PushKit_CallKit_Demo/Provider/ProviderDelegate.m"
-            timestampString = "514455999.304156"
+            timestampString = "514719343.270405"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
             landmarkName = "-provider:performSetGroupCallAction:"
             landmarkType = "7">
          </BreakpointContent>
@@ -90,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PushKit_CallKit_Demo/Provider/ProviderDelegate.m"
-            timestampString = "514455999.304156"
+            timestampString = "514719343.270405"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
             landmarkName = "-provider:performPlayDTMFCallAction:"
             landmarkType = "7">
          </BreakpointContent>
@@ -106,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PushKit_CallKit_Demo/Provider/ProviderDelegate.m"
-            timestampString = "514459013.307403"
+            timestampString = "514719343.270405"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "123"
-            endingLineNumber = "123"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
             landmarkName = "-provider:didActivateAudioSession:"
             landmarkType = "7">
          </BreakpointContent>
@@ -122,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PushKit_CallKit_Demo/Provider/ProviderDelegate.m"
-            timestampString = "514459013.982205"
+            timestampString = "514719343.270405"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "126"
-            endingLineNumber = "126"
+            startingLineNumber = "137"
+            endingLineNumber = "137"
             landmarkName = "-provider:didDeactivateAudioSession:"
             landmarkType = "7">
          </BreakpointContent>
@@ -138,11 +106,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PushKit_CallKit_Demo/Provider/ProviderDelegate.m"
-            timestampString = "514459015.153204"
+            timestampString = "514719343.270405"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "118"
-            endingLineNumber = "118"
+            startingLineNumber = "129"
+            endingLineNumber = "129"
             landmarkName = "-provider:timedOutPerformingAction:"
             landmarkType = "7">
          </BreakpointContent>
@@ -154,11 +122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PushKit_CallKit_Demo/Provider/ProviderDelegate.m"
-            timestampString = "514459254.12599"
+            timestampString = "514719343.270405"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
             landmarkName = "-provider:performAnswerCallAction:"
             landmarkType = "7">
          </BreakpointContent>
@@ -170,13 +138,61 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PushKit_CallKit_Demo/Provider/ProviderDelegate.m"
-            timestampString = "514459255.325588"
+            timestampString = "514719343.270405"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
             landmarkName = "-provider:performEndCallAction:"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PushKit_CallKit_Demo/Provider/ProviderDelegate.m"
+            timestampString = "514719704.20263"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "-reportIncomingCall"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ProviderDelegate reportIncomingCall]"
+                  moduleName = "PushKit_CallKit_Demo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/barry/Desktop/PushKit_CallKit_Demo/PushKit_CallKit_Demo/Provider/ProviderDelegate.m"
+                  timestampString = "514720125.353166"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
+                  offsetFromSymbolStart = "224">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__38-[ProviderDelegate reportIncomingCall]_block_invoke"
+                  moduleName = "PushKit_CallKit_Demo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/barry/Desktop/PushKit_CallKit_Demo/PushKit_CallKit_Demo/Provider/ProviderDelegate.m"
+                  timestampString = "514720125.354577"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "64"
+                  endingLineNumber = "64"
+                  offsetFromSymbolStart = "48">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
