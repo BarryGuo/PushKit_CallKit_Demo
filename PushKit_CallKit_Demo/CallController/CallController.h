@@ -11,11 +11,10 @@
 
 @interface CallController : NSObject
 
-@property (nonatomic, strong) NSUUID* currentUUID;
-@property (nonatomic, strong) NSString* currentHandle;
-
-
-- (void)answerCall;
+@property (nonatomic, strong) NSUUID * currentUUID;
+@property (nonatomic, copy) NSString* currentHandle;
+@property (nonatomic, copy) NSString *localizedCallerName;
+@property (nonatomic) BOOL hasVideo;
 
 
 - (void)startCall:(NSString*)handle;

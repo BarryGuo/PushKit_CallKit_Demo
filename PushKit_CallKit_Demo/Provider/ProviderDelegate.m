@@ -9,6 +9,7 @@
 #import "ProviderDelegate.h"
 #import "GlobalDefine.h"
 
+#import <AVFoundation/AVFoundation.h>
 
 @interface ProviderDelegate ()
 @property (nonatomic, strong) CXProvider * provider;
@@ -47,7 +48,8 @@
 
 
 - (instancetype)initWithCallController:(CallController *)callController{
-    if (self = [super init]) {
+    self = [super init];
+    if (self) {
         self.callController = callController;
         _provider = [[CXProvider alloc] initWithConfiguration:self.config];
         [_provider setDelegate:self queue:nil];
@@ -58,9 +60,9 @@
 - (void)reportIncomingCall{
     CXCallUpdate* update = [[CXCallUpdate alloc] init];
     update.hasVideo = NO;
-    update.remoteHandle = [[CXHandle alloc] initWithType:CXHandleTypePhoneNumber value:@"18211301722"];
+    update.remoteHandle = [[CXHandle alloc] initWithType:CXHandleTypePhoneNumber value:self.callController.currentHandle];
     
-    [self.provider reportNewIncomingCallWithUUID:[NSUUID UUID] update:update completion:^(NSError * _Nullable error) {
+    [self.provider reportNewIncomingCallWithUUID:self.callController.currentUUID update:update completion:^(NSError * _Nullable error) {
         if (error) {
             NSLog(@"report error");
         }
@@ -82,38 +84,46 @@
     
 }
 
-//outgoing 外呼
 - (void)provider:(CXProvider *)provider performStartCallAction:(CXStartCallAction *)action{
+    
     NSUUID* currentID = self.callController.currentUUID;
     if ([[action.callUUID UUIDString] isEqualToString:[currentID UUIDString]]) {
+        configureAudioSession();
+        // your code
         
+        [action fulfill];
+    } else {
+        [action fail];
     }
+
 }
 
-//incoming 接听
 - (void)provider:(CXProvider *)provider performAnswerCallAction:(CXAnswerCallAction *)action{
+
     NSUUID* currentID = self.callController.currentUUID;
     if ([[action.callUUID UUIDString] isEqualToString:[currentID UUIDString]]) {
-        [self.callController answerCall];
+        configureAudioSession();
+        //your code
         [action fulfill];
     } else {
         [action fail];
     }
 }
-
 
 - (void)provider:(CXProvider *)provider performEndCallAction:(CXEndCallAction *)action{
     NSUUID* currentID = self.callController.currentUUID;
     if ([[action.callUUID UUIDString] isEqualToString:[currentID UUIDString]]) {
-//        [self.callController.callManager stopCall];
+       //your code
         [action fulfill];
     } else {
         [action fail];
     }
+    
 }
 - (void)provider:(CXProvider *)provider performSetHeldCallAction:(CXSetHeldCallAction *)action{
     
 }
+
 - (void)provider:(CXProvider *)provider performSetMutedCallAction:(CXSetMutedCallAction *)action{
     
 }
@@ -131,11 +141,24 @@
 
 /// Called when the provider's audio session activation state changes.
 - (void)provider:(CXProvider *)provider didActivateAudioSession:(AVAudioSession *)audioSession{
-    
+    // you code
+    //在这里启动应用的音视频逻辑
 }
 - (void)provider:(CXProvider *)provider didDeactivateAudioSession:(AVAudioSession *)audioSession{
     
 }
+
+
+
+#pragma mark - CallAudio
+void configureAudioSession(){
+    NSError *error = nil;
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayAndRecord error:&error];
+    if (error) {
+        NSLog(@"couldn't set session's audio category");
+    }
+}
+
 
 
 @end

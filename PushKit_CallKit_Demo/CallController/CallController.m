@@ -18,6 +18,7 @@
 @implementation CallController
 
 
+
 - (instancetype)init{
     if (self = [super init]) {
         _cxCallController = [[CXCallController alloc] init];
@@ -53,19 +54,6 @@
     }];
 }
 
-
-
-- (NSString *)currentHandle{
-    return @"18211301722";
-}
-
-- (NSUUID *)currentUUID{
-    return [NSUUID UUID];
-}
-
-- (void)answerCall{
-    NSLog(@"answerCall");
-}
 
 
 @end

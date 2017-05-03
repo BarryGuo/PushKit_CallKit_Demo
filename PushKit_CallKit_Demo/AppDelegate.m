@@ -21,6 +21,9 @@
 #import "ProviderDelegate.h"
 #import "CallController/CallController.h"
 
+
+#import <Intents/Intents.h>
+
 @interface AppDelegate ()<PKPushRegistryDelegate,UNUserNotificationCenterDelegate>
 
 
@@ -41,8 +44,7 @@
     [self registePushAndLocalNoti];
     
     [self registPushKit];
-    
-    
+
     return YES;
 }
 
@@ -57,18 +59,10 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-//    [self incomingCall];
-   
+
 }
 
 
-- (void)incomingCall{
-    _callController = [[CallController alloc] init];
-    
-    _provider = [[ProviderDelegate alloc] initWithCallController:_callController];
-    
-    [_provider reportIncomingCall];
-}
 
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
@@ -84,6 +78,71 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+
+- (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void (^)(NSArray * _Nullable))restorationHandler{
+    
+    [@"continueUserActivity restorationHandler" saveTolog];
+    
+    {
+        NSLog(@"userActivity.activityType:%@",userActivity.activityType);
+        NSLog(@"userActivity.title:%@",userActivity.title);
+        NSLog(@"userActivity.userInfo:%@",userActivity.userInfo);
+        NSLog(@"userActivity.requiredUserInfoKeys:%@",userActivity.requiredUserInfoKeys);
+        NSLog(@"userActivity.needsSave:%@",[NSNumber numberWithBool:userActivity.needsSave]);
+        NSLog(@"userActivity.expirationDate:%@",userActivity.expirationDate);
+        NSLog(@"userActivity.keywords:%@",userActivity.keywords);
+        NSLog(@"userActivity.supportsContinuationStreams:%@",[NSNumber numberWithBool:userActivity.supportsContinuationStreams]);
+        NSLog(@"userActivity.eligibleForHandoff:%@",[NSNumber numberWithBool:userActivity.eligibleForHandoff]);
+        NSLog(@"userActivity.eligibleForSearch:%@",[NSNumber numberWithBool:userActivity.eligibleForSearch]);
+        NSLog(@"userActivity.eligibleForPublicIndexing:%@",[NSNumber numberWithBool:userActivity.eligibleForPublicIndexing]);
+        NSURL *url = userActivity.webpageURL;
+        NSLog(@"url.absoluteString:%@",url.absoluteString);
+        NSLog(@"url.relativeString:%@",url.relativeString);
+        NSLog(@"url.baseURL:%@",url.baseURL);
+        NSLog(@"url.absoluteURL:%@",url.absoluteURL);
+        NSLog(@"url.scheme:%@",url.scheme);
+        NSLog(@"url.resourceSpecifier:%@",url.resourceSpecifier);
+        NSLog(@"url.host:%@",url.host);
+        NSLog(@"url.port:%@",url.port);
+        NSLog(@"url.user:%@",url.user);
+        NSLog(@"url.password:%@",url.password);
+        NSLog(@"url.path:%@",url.path);
+        NSLog(@"url.fragment:%@",url.fragment);
+        NSLog(@"url.parameterString:%@",url.parameterString);
+        NSLog(@"url.query:%@",url.query);
+        NSLog(@"url.relativePath:%@",url.relativePath);
+        NSLog(@"url.hasDirectoryPath:%@",[NSNumber numberWithBool:url.hasDirectoryPath]);
+    }
+    
+    
+    INInteraction  *interaction = userActivity.interaction;
+    INPerson *contact;
+    if ([userActivity.activityType isEqualToString:@"INStartAudioCallIntent"]) {
+        INStartAudioCallIntent *startAudioCallIntent = (INStartAudioCallIntent *)interaction.intent;
+        contact = [startAudioCallIntent.contacts firstObject];
+    }else if ([userActivity.activityType isEqualToString:@"INStartVideoCallIntent"]) {
+        INStartVideoCallIntent *startVideoCallIntent = (INStartVideoCallIntent *)interaction.intent;
+        contact = [startVideoCallIntent.contacts firstObject];
+    }else if ([userActivity.activityType isEqualToString:@"INSendMessageIntent"]) {
+        INSendMessageIntent *startVideoCallIntent = (INSendMessageIntent *)interaction.intent;
+        contact = [startVideoCallIntent.recipients firstObject];
+    }
+    
+    NSString * handle = contact.personHandle.value;
+    NSLog(@"handle %@", handle);
+    
+    BOOL hasVideo = NO;
+    if ([userActivity.activityType isEqualToString:@"INStartVideoCallIntent"]) {
+        hasVideo = YES;
+    }
+    
+    if (handle != nil && handle.length > 0) {
+        //发起呼叫等操作
+    }
+    return NO;
+}
+
 
 
 #pragma mark 通知授权和 apns注册
